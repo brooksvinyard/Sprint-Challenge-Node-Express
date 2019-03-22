@@ -39,6 +39,23 @@ router.get('/:id', (req, res) => {
 });
 
 
+// GET /api/projects/:id/actions
+// Get a projects actions by project id
+router.get('/:id/actions', (req, res) => {
+    const {id} = req.params;
+    Projects.getProjectActions(id)
+    .then(projects => {
+        if (!projects) {
+            res.status(500).json({message: 'The project with the specified ID does not exist.'});
+        } else {
+            res.status(200).json(projects);
+        }
+    }).catch(error => {
+        res.status(404).json({message: 'The actions for the project could not be retrieved.'});
+    })
+});
+
+
 // POST /api/projects
 // Add a projects
 router.post('/', (req, res) => {
