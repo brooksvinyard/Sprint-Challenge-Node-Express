@@ -1,0 +1,18 @@
+.project-List {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+    flex-wrap: wrap;
+}
+
+.project {
+    background-color: darkgrey;
+    border: 1px solid black;
+    box-shadow: 0px 2px 20px 2px black;
+    border-radius: 5px;
+    width: 350px;
+    margin: 5%;
+    padding: 20px;
+    color: #fdfdfd;
+}
