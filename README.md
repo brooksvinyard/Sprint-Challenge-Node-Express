@@ -26,13 +26,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+    Express makes building a server with node a lot easier. Two things that Express adds are routing and middleware. 
+
 - [ ] Describe Middleware?
+
+    Middleware is a type of function that runs on the request and response objects. Middleware can be used to do logging or authentication.
 
 - [ ] Describe a Resource?
 
+    A resource is usually a json response with a list of the desired information.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+    '200'
+
 - [ ] How can we partition our application into sub-applications?
+
+    We can use routing to setup different endpoints for sub-applications.
 
 ## Project Setup
 
