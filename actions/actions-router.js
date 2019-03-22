@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
 });
 
 // GET /api/actions/:id
-// Get a actions by id
+// Get an actions by id
 router.get('/:id', (req, res) => {
     const {id} = req.params;
     Actions.get(id)
@@ -54,6 +54,23 @@ router.post('/', (req, res) => {
     })
     .catch(error => {
         res.status(500).json({message: 'There was an error while saving the action.'});
+    })
+});
+
+
+// DELETE /api/actions/:id
+// Delete an action by id
+router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+    Actions.remove(id).then(deleted => {
+        if (!deleted) {
+            res.status(500).json({message: 'The action with the specified ID does not exist.'});
+        } else {
+            res.status(204).end();
+        }
+    })
+    .catch(error => {
+        res.status(500).json({message: 'The action could not be removed'});
     })
 });
 

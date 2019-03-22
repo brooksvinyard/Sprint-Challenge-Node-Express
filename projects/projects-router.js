@@ -57,4 +57,21 @@ router.post('/', (req, res) => {
 });
 
 
+// DELETE /api/projects/:id
+// Delete a project by id
+router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+    Projects.remove(id).then(deleted => {
+        if (!deleted) {
+            res.status(500).json({message: 'The project with the specified ID does not exist.'});
+        } else {
+            res.status(204).end();
+        }
+    })
+    .catch(error => {
+        res.status(500).json({message: 'The project could not be removed'});
+    })
+});
+
+
 module.exports = router;
